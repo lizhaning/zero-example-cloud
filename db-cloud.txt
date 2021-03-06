@@ -4,4 +4,9 @@ GRANT ALL PRIVILEGES ON *.* TO 'dbcloud'@'%' REQUIRE NONE WITH GRANT OPTION MAX_
 CREATE DATABASE IF NOT EXISTS `dbcloud`;
 GRANT ALL PRIVILEGES ON `db-cloud`.* TO 'dbcloud'@'%';
 
-2、
+2、创建示例表 t_payment
+CREATE TABLE `t_payment` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `serial` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;

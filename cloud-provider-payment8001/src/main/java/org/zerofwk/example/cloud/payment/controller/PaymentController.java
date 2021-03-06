@@ -1,6 +1,9 @@
 package org.zerofwk.example.cloud.payment.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.client.ServiceInstance;
+import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.*;
 import org.zerofwk.example.cloud.entity.CommonResult;
 import org.zerofwk.example.cloud.entity.Payment;
@@ -17,10 +20,14 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/payment")
+@Slf4j
 public class PaymentController {
 
     @Resource
     private PaymentService paymentService;
+
+    @Resource
+    private DiscoveryClient discoveryClient;
 
     @Value("${server.port}")
     private String serverPort;
@@ -48,5 +55,20 @@ public class PaymentController {
                                                        @RequestParam(defaultValue = "10") int limit) {
         List<Payment> payment = this.paymentService.queryAllByLimit(offset, limit);
         return new CommonResult<>(200, "select success， serverPort：" + serverPort, payment);
+    }
+
+
+    @GetMapping(value = "discovery")
+    public Object discovery(){
+        List<String> services = discoveryClient.getServices();
+        services.forEach(s->{
+            log.info("****** service: {}.",s);
+        });
+
+        List<ServiceInstance> instances = discoveryClient.getInstances("CLOUD-PROVIDER-PAYMENT-SERVICE");
+        instances.forEach(ins->{
+            log.info("{},{},{},{}",ins.getServiceId(),ins.getHost(),ins.getPort(),ins.getUri());
+        });
+        return this.discoveryClient;
     }
 }
