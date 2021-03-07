@@ -12,8 +12,8 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
  */
 @SpringBootApplication
 @EnableEurekaClient
-public class Payment8002Application {
+public class Payment8002App {
     public static void main(String[] args) {
-        SpringApplication.run(Payment8002Application.class, args);
+        SpringApplication.run(Payment8002App.class, args);
     }
 }

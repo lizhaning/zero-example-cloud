@@ -6,8 +6,8 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-public class Payment8004App {
+public class PayementConsul8006App {
     public static void main(String[] args) {
-        SpringApplication.run(Payment8004App.class,args);
+        SpringApplication.run(PayementConsul8006App.class, args);
     }
 }
