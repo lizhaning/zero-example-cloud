@@ -11,6 +11,7 @@ import org.zerofwk.example.cloud.payment.service.PaymentService;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.stream.StreamSupport;
 
 /**
  * desc:
@@ -74,6 +75,16 @@ public class PaymentController {
 
     @GetMapping(value = "lb")
     public String paymentLb() {
+        return serverPort;
+    }
+
+    @GetMapping(value = "/timeout")
+    public String paymentTimeout(){
+        try{
+            Thread.sleep(3000);
+        }catch (InterruptedException e){
+            e.printStackTrace();
+        }
         return serverPort;
     }
 }
