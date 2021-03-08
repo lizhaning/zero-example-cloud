@@ -59,16 +59,21 @@ public class PaymentController {
 
 
     @GetMapping(value = "discovery")
-    public Object discovery(){
+    public Object discovery() {
         List<String> services = discoveryClient.getServices();
-        services.forEach(s->{
-            log.info("****** service: {}.",s);
+        services.forEach(s -> {
+            log.info("****** service: {}.", s);
         });
 
         List<ServiceInstance> instances = discoveryClient.getInstances("CLOUD-PROVIDER-PAYMENT-SERVICE");
-        instances.forEach(ins->{
-            log.info("{},{},{},{}",ins.getServiceId(),ins.getHost(),ins.getPort(),ins.getUri());
+        instances.forEach(ins -> {
+            log.info("{},{},{},{}", ins.getServiceId(), ins.getHost(), ins.getPort(), ins.getUri());
         });
         return this.discoveryClient;
+    }
+
+    @GetMapping(value = "lb")
+    public String paymentLb() {
+        return serverPort;
     }
 }

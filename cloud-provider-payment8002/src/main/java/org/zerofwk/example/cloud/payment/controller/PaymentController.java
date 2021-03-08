@@ -49,4 +49,9 @@ public class PaymentController {
         List<Payment> payment = this.paymentService.queryAllByLimit(offset, limit);
         return new CommonResult<>(200, "select success， serverPort：" + serverPort, payment);
     }
+
+    @GetMapping(value = "lb")
+    public String paymentLb() {
+        return serverPort;
+    }
 }

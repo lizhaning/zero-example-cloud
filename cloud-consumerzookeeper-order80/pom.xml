@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>cloud-consumezk-order80</artifactId>
+    <artifactId>cloud-consumerzookeeper-order80</artifactId>
 
     <dependencies>
         <dependency>
@@ -30,11 +30,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
-        <!--   引入eureka客户端     -->
-        <!--<dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-        </dependency>-->
         <!--   引入zookeeper     -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>

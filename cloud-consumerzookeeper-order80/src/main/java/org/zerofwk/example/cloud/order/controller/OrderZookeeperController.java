@@ -7,10 +7,15 @@ import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.Resource;
 
+/**
+ * desc:
+ *
+ * @Author: Administrator
+ * @Date: 2021/3/8 15:45
+ */
 @RestController
 @Slf4j
-public class OrderZk80Controller {
-
+public class OrderZookeeperController {
     private static final String PAYMENT_URL = "http://cloud-provider-payment-service";
     @Resource
     private RestTemplate restTemplate;
