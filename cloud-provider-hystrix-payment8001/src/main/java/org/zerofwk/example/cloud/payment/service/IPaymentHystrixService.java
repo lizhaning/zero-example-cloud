@@ -11,4 +11,6 @@ public interface IPaymentHystrixService {
     String paymentInfoOk(Integer id);
 
     String paymentInfoTimeout(Integer id);
+
+    String paymentCircuitBreaker(Integer dd);
 }
