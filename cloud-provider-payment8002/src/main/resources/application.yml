@@ -93,4 +93,5 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      defaultZone: http://eurekaserver7001.com:7001/eureka,http://eurekaserver7002.com:7002/eureka
+      #defaultZone: http://eurekaserver7001.com:7001/eureka,http://eurekaserver7002.com:7002/eureka
+      defaultZone: http://eurekaserver7001.com:7001/eureka
