@@ -1,0 +1,30 @@
+server:
+  port: 3344
+
+spring:
+  application:
+    name: cloud-config-center
+  cloud:
+    config:
+      server:
+        git:
+          default-label: master
+          uri: https://gitee.com/simonly/zerofwk-example-cloud-config.git
+          username: freeregister@163.com
+          password: gitee1qaz2wsx
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+eureka:
+  client:
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://eurekaserver7001.com:7001/eureka
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh
