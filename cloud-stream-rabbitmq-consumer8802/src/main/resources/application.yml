@@ -1,0 +1,32 @@
+server:
+  port: 8802
+
+spring:
+  application:
+    name: cloud-stream-rabbitmq-consumer
+  cloud:
+    stream:
+      binders:
+        local-rabbit:
+          type: rabbit
+          environment:
+            spring:
+              rabbitmq:
+                host: localhost
+                prot: 5672
+                username: guest
+                password: guest
+      bindings:
+        input:
+          destination: studyExchange
+          content-type: application/json
+          binder: local-rabbit
+eureka:
+  instance:
+    instance-id: stream-rabbitmq-consumer-8802
+    prefer-ip-address: true
+    lease-expiration-duration-in-seconds: 5 # timeout
+    lease-renewal-interval-in-seconds: 2 # heart beat
+  client:
+    service-url:
+      defaultZone: http://eurekaserver7001.com:7001/eureka
