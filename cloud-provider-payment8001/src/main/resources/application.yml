@@ -77,7 +77,11 @@ spring:
         login-username: root            # 配置监控页面访问密码
         login-password: 123
         allow: 127.0.0.1           # 允许访问的地址，如果allow没有配置或者为空，则允许所有访问
-
+  zipkin:
+    base-url: http://localhost:9411
+  sleuth:
+    sampler:
+      probability: 1 # 全部采集
 
 server:
   port: 8001

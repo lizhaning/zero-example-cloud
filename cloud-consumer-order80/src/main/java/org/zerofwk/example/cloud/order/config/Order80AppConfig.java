@@ -15,7 +15,7 @@ import org.springframework.web.client.RestTemplate;
 public class Order80AppConfig {
 
     @Bean
-    //@LoadBalanced
+    @LoadBalanced
     public RestTemplate getRestTemplate(){
         return new RestTemplate();
     }
