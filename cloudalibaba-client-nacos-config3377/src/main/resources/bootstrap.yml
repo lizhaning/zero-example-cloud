@@ -1,0 +1,15 @@
+server:
+  port: 3377
+
+spring:
+  application:
+    name: client-nacos-config
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:1111
+      config:
+        server-addr: 127.0.0.1:1111
+        file-extension: yaml
+        #group: DEV_GROUP
+        #namespace: XDGG
