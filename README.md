@@ -5,3 +5,5 @@
 <springboot.version>2.2.7.RELEASE</springboot.version>
 
 <spring.cloud-version>Hoxton.SR8</spring.cloud-version>
+
+<aliyun.cloud-version>2.2.1.RELEASE</aliyun.cloud-version>
