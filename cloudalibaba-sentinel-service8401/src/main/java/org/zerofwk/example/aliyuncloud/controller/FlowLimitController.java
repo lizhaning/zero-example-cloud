@@ -18,21 +18,35 @@ import java.util.concurrent.TimeUnit;
 public class FlowLimitController {
 
     @GetMapping("/testA")
-    public String testA(){
+    public String testA() {
 //        try {
 //            TimeUnit.MILLISECONDS.sleep(1200);
 //        }catch (Exception e){
 //            e.printStackTrace();
 //        }
-        return "testA: "+ RandomStringUtils.randomAlphanumeric(20);
+        return "testA: " + RandomStringUtils.randomAlphanumeric(20);
     }
+
     @GetMapping("/testB")
-    public String testB(){
-        log.info(Thread.currentThread().getName()+"\t,------testB");
-        return "testB: "+ RandomStringUtils.randomAlphanumeric(20);
+    public String testB() {
+        log.info(Thread.currentThread().getName() + "\t,------testB");
+        return "testB: " + RandomStringUtils.randomAlphanumeric(20);
     }
+
     @GetMapping("/testC")
-    public String testC(){
-        return "testC: "+ RandomStringUtils.randomAlphanumeric(20);
+    public String testC() {
+        return "testC: " + RandomStringUtils.randomAlphanumeric(20);
+    }
+
+    @GetMapping("/testD")
+    public String testD() {
+        try {
+            TimeUnit.MILLISECONDS.sleep(1000);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        String result = "testD: " + RandomStringUtils.randomAlphanumeric(20);
+        int age = 10/0;
+        return result;
     }
 }
